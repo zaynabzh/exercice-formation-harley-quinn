@@ -1,0 +1,239 @@
+body{
+    margin: auto;
+    overflow-x: hidden; /* overflow-x: hidden; = désactive le scroll à droite (X = à l'horizontale) - bonne astuce pour les éléments qui sont amenés à dépasser */
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20pt;
+    height: 80px;
+    padding: 0 20px;
+    background-image: url(/links/texture.jpg);
+    color: #fff; 
+}
+
+.forme-g{
+    height: 60px;
+    animation: forme-g 4s infinite;
+}
+
+.forme-d{
+    height: 60px;
+    animation: forme-d 4s infinite;
+}
+
+#intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px ;
+}
+
+#intro .img {
+   margin-right: 20px;
+   height: 150px;
+}
+
+#intro h1 {
+    background-color: white;
+    color: #047A90;
+    border: 1px solid #047A90;
+    text-align: center;
+    padding: 10px;
+}
+
+#intro a{
+    text-decoration: none; /* retire le soulignement du lien sur le texte */
+}
+
+#intro h1:hover {
+    background-color:#047A90 ;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+#intro img { 
+    width: 220px;
+    height: 150px;
+    object-fit: cover;  /* garde les proportions de l'image, peut importe le responsive */
+    transition: all 2s; /* effet de ralentit sur la modififation demandé lors du survol */
+}
+
+#intro img:hover{
+    transform: scale(2) rotate(5deg); /* effet de zoom et de rotation lors du survol de l'élément*/
+}
+
+.emoticone{
+    display: flex;
+    justify-content: center;
+}
+
+.emoticone-hq{
+    width: 100px;
+    padding-top: 30px ;
+    animation: emoticone-hq  10s infinite;
+}
+
+#portfolio {
+    text-align: center;
+}
+
+h2{
+    color: #047A90;
+    border-bottom: 1px solid #047A90;
+    border-top: 1px solid #047A90;
+    margin: auto;
+    width: 200px;
+    padding: 5px;
+}
+/* margin: auto; = ajoute une marge auto en fonction de la dimension définit pour le contenair // width: 200px; = définit la largeur du contenair */
+
+
+h2:hover{
+    transform: scale(1.1);
+    color: #303032;
+}
+
+.container {
+    display: flex; /* agit toujours sur les enfants directs */
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+    padding-top: 20px; 
+}
+
+.item{
+    width: calc(50% - 10px); /* "calc" permet de palier à la problématique de marge que flex-wrap prend en compte - les 10px font parti du gap */
+}    
+
+.item .btn{
+    display:block; /* ne peut pas s'aligner avec un text-align : center, nécessité d'avoir un margin auto pour l'aligner */
+    margin: auto;
+    width: 200px; 
+    color: #fff;
+    background: #303032; 
+    text-decoration: none;
+    border-radius:50px; 
+    font-size: 20px;
+    padding: 20px 0px;
+    transition: all .7s;
+    transition-timing-function: steps(6, end); /* nécéssité d'indiquer une valeur width de départ puis d'arrivée (dans :hover) */
+}
+
+.item .btn:hover{
+    background-image: url(/Exercices/Exercice-1/texture.jpg);
+    transform: scale(.9);
+    width: 100px;
+}
+
+#filmographie {
+    text-align: center;
+    padding: 60px 0 60px 0;
+}
+
+.ba{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 40px;  
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background: #303032;
+    color: #fff;
+}
+
+@media (max-width:768px){
+    #intro{
+        flex-direction: column;
+        padding-bottom: 70px;
+    }
+
+    .img{
+        padding-bottom: 30px;
+    }
+
+    .container{
+        flex-direction: column; 
+        align-items: center;       
+    }
+    .item{
+        width: 200px;
+    }
+    .bio{
+        width: 90vw;
+        margin: 0 auto; /* permet de centre l'élément */
+    }
+    iframe{
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+    .ba-bis {
+        padding-bottom: 50px;       
+    } 
+    
+    .emoticone-hq{
+        animation: forme-g 4s infinite ;
+    }
+}
+
+@media (max-width : 1080px){
+    /* .ba-bis {
+       padding-bottom: 50px;       
+    } */
+}
+
+
+@keyframes emoticone-hq{
+    0% {
+        transform: translateX(380px);
+    }
+    20%{
+        transform: translateY(200px) rotate(50deg) ;
+    }
+    40%{
+        transform: translateZ(50px) rotate(-50deg);        
+    }
+    60%{
+        transform: translateX(-380px);
+    }
+    80%{
+        transform: translateY(200px) rotate(360deg);
+    } 
+    100%{
+        transform: translateX(380px);
+    }
+}
+
+
+@keyframes forme-g {
+    0%{
+        transform : rotate(-40deg);
+    }
+    50%{
+        transform: rotate(40deg);
+    }
+    100%{
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes forme-d {
+    0%{
+        transform : rotate(40deg);
+    }
+    50%{
+        transform: rotate(-40deg);
+    }
+    100%{
+        transform: rotate(40deg);
+    }
+}
